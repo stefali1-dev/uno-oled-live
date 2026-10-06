@@ -3,7 +3,7 @@
 #include "coin_frames.h"
 
 // BTC ticker: spinning coin on the left, price on the right with odometer-rolling digits,
-// 24 h change and a 24 h sparkline. tools/btc_feed.py sends the data over USB serial as
+// 24 h change and a 24 h sparkline. btc/feed.py sends the data over USB serial as
 //   "P <price> <change in 1/100 %> <70 spark chars 'a'..'r'>\n"
 // The OLED is on D4 (SDA) / D5 (SCL) = PD4 / PD5, driven by a fast bit-banged I2C.
 
@@ -106,7 +106,7 @@ void onMessage(char *line) {
   price = p;
   haveData = true;
   panelDirty = true;
-  Serial.print("ok ");  // lets btc_feed.py confirm delivery
+  Serial.print("ok ");  // lets feed.py confirm delivery
   Serial.println(p);
 }
 
@@ -179,7 +179,7 @@ void drawPanel(bool fresh) {
   if (!haveData) {
     if (onPage(19, 35)) {
       oled.drawStr(PANEL_X + 2, 26, "waiting for");
-      oled.drawStr(PANEL_X + 2, 35, "btc_feed.py");
+      oled.drawStr(PANEL_X + 2, 35, "btc/feed.py");
     }
     return;
   }

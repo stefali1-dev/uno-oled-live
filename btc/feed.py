@@ -1,6 +1,6 @@
 """Feeds the BTC price to the Uno over USB serial every 30 s, from Coinbase's public API (no key).
 
-Usage: btc_feed.py [port]   (default /dev/ttyUSB0; --once prints one message and exits)
+Usage: btc/feed.py [port]   (default /dev/ttyUSB0; --once prints one message and exits)
 """
 import json
 import sys

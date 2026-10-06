@@ -1,3 +1,4 @@
 [wokwi]
 version = 1
-firmware = 'build/sim.uf2'
+firmware = 'build/sim.hex'
+elf = 'build/sim.elf'
